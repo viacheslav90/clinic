@@ -12,4 +12,11 @@ public abstract class Pet {
         this.id = id;
         this.petName = petName;
     }
+
+    public String getPetName(){
+        return this.petName;
+    }
+
+    public abstract String getVoice();
+
 }

@@ -5,12 +5,27 @@ package Animal;
  */
 public class Cat extends Pet{
 
-    private static Pet pet;
+    private static final String VARIETY_PET = "Cat";
 
     /*
     *Конструктор класса Кот
      */
-    public Cat(final Pet pet){
-        this.pet = pet;
+    public Cat(final String id, final  String petName){
+        super(id, petName);
+    }
+
+    /*
+    * Голос животного
+     */
+    @Override
+    public String getVoice() {
+        return "Мяу-мяу";
+    }
+
+    /*
+    * Получениче разновидности животного
+     */
+    public String getVarietyPet(){
+        return VARIETY_PET;
     }
 }

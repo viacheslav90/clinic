@@ -6,9 +6,9 @@ package Animal;
 public class ClientRunner {
 
     public static void main(String[] args){
-        final Clinic clinic = new Clinic(10);
+        final Clinic clinic = new Clinic(100);
 
-        clinic.addClient(0, new Client("Bwrown"), new Cat("Diggy"));
+        clinic.addClient(0, new Client("Brown"), new Cat("Diggy"));
     }
 
 }
