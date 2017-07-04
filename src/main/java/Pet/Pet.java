@@ -1,4 +1,4 @@
-package Animal;
+package Pet;
 
 /**
  * Created by Slavka Dontsov on 02.07.2017.

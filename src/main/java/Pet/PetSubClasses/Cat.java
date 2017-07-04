@@ -1,10 +1,16 @@
-package Animal;
+package Pet.PetSubClasses;
+
+import Pet.Pet;
+import jdk.nashorn.internal.runtime.options.LoggingOption;
+
+import java.util.logging.Logger;
 
 /**
  * Created by Slavka Dontsov on 02.07.2017.
  */
 public class Cat extends Pet{
 
+    private static final Logger logger = Logger.getLogger(Cat.class.getName());
     private static final String VARIETY_PET = "Cat";
 
     /*
@@ -12,6 +18,7 @@ public class Cat extends Pet{
      */
     public Cat(final String id, final  String petName){
         super(id, petName);
+        logger.info("Object Cat: Cat name: '" + petName + "' Client name '" + id + "' has been created");
     }
 
     /*
@@ -19,6 +26,7 @@ public class Cat extends Pet{
      */
     @Override
     public String getVoice() {
+        logger.info("getVoice() method has been called");
         return "Мяу-мяу";
     }
 
@@ -26,6 +34,7 @@ public class Cat extends Pet{
     * Получениче разновидности животного
      */
     public String getVarietyPet(){
+        logger.info("getVerietyPet() has been called");
         return VARIETY_PET;
     }
 }

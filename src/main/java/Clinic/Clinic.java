@@ -1,4 +1,6 @@
-package Animal;
+package Clinic;
+
+import Client.Client;
 
 /**
  * Hello world!

@@ -1,4 +1,6 @@
-package Animal;
+package Client;
+
+import Pet.Pet;
 
 /**
  * Created by Slavka Dontsov on 02.07.2017.
