@@ -1,6 +1,6 @@
 package ActionListeners.MainScreenActionListeners;
 
-import Frames.AddClientFrame;
+import Threads.AddClientThread;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,8 @@ public class AddClientActionListener implements EventListener, ActionListener {
     private static final Logger logger = Logger.getLogger(AddClientActionListener.class.toString());
 
     public void actionPerformed(ActionEvent e){
-        logger.info("aactionPrerformed method from AddClientActionListener was called");
-        AddClientFrame addClientFrame = new AddClientFrame();
+        logger.info("actionPrerformed method from AddClientActionListener was called");
+        AddClientThread addClientThread = new AddClientThread();
+        addClientThread.run();
     }
 }

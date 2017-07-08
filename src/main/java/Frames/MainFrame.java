@@ -40,8 +40,7 @@ public class MainFrame extends JFrame {
 
         JButton addClientButton = new JButton("Add Client");
         jPanel.add(addClientButton);
-        AddClientActionListener addButtonListener = new AddClientActionListener();
-        addClientButton.addActionListener(addButtonListener);
+
 
         JButton deleteClientButton = new JButton("Delete Client");
         jPanel.add(deleteClientButton);
@@ -55,8 +54,8 @@ public class MainFrame extends JFrame {
         JButton searchByPetButton = new JButton("Search Client by pet");
         jPanel.add(searchByPetButton);
 
-        ActionListener addClientButtonListener = (ActionListener) new AddClientActionListener();
-        addClientButton.addActionListener(addClientButtonListener);
+        AddClientActionListener addButtonListener = new AddClientActionListener();
+        addClientButton.addActionListener(addButtonListener);
 
         logger.info("Main frame was opened");
     }
