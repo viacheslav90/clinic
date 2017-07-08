@@ -11,6 +11,5 @@ public class Main {
 
         final Clinic clinic = new Clinic(100);
         MainFrame mainFrame = new MainFrame();
-
     }
 }
