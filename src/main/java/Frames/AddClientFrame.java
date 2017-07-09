@@ -3,6 +3,7 @@ package Frames;
 import ActionListeners.MainScreenActionListeners.WindowCloseListener;
 import Client.Client;
 import Clinic.Clinic;
+import JSONParser.PetParser;
 import Pet.Pet;
 import PetFactory.PetFactory;
 import javax.swing.*;
@@ -14,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 /**
@@ -138,17 +140,17 @@ public class AddClientFrame extends JFrame {
         private String petSubClass = "Cat";
 
 
-        public void setClientName(String clientName){
+        void setClientName(String clientName){
             this.clientName = clientName;
             logger.info("Client name has been set: "+ clientName);
         }
 
-        public void setPetName(String petName){
+        void setPetName(String petName){
             this.petName = petName;
             logger.info("Pet name has been set: " + petName);
         }
 
-        public void setPetSubClass(String petSubClass){
+        void setPetSubClass(String petSubClass){
             if(petSubClass.equals("Cat") || petSubClass.equals("Dog")) {
                 this.petSubClass = petSubClass;
                 logger.info("Pet subclass has been set: " + petSubClass);
@@ -158,15 +160,18 @@ public class AddClientFrame extends JFrame {
         /*
         * Метод создает клиента и добавляет в клинику
          */
-        public void createNewClient(){
+        void createNewClient(){
             try {
                 PetFactory petFactory = new PetFactory();
                 Pet pet = petFactory.getPet(petSubClass, clientName, petName);
-                System.out.println(pet);
+                PetParser petParser = new PetParser();
+                System.out.println(petParser.petToJSON(pet));
                 Client client = new Client(clientName, pet);
                 Clinic.addClient(client);
             } catch (NullPointerException e){
                 logger.warning(e.getMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         }
