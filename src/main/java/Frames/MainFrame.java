@@ -20,14 +20,14 @@ public class MainFrame extends JFrame {
     */
     public MainFrame(){
         super("My Clinic");
-        createMainFrane();
+        createMainFrame();
         logger.info("Main frame was build");
     }
 
     /*
     * Метод отображает основное меню
      */
-    public void createMainFrane() {
+    public void createMainFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(900,200);
         setLocationRelativeTo(null);
@@ -40,7 +40,6 @@ public class MainFrame extends JFrame {
 
         JButton addClientButton = new JButton("Add Client");
         jPanel.add(addClientButton);
-
 
         JButton deleteClientButton = new JButton("Delete Client");
         jPanel.add(deleteClientButton);
