@@ -1,6 +1,13 @@
 package Clinic;
 
 import Client.Client;
+import JsonConverter.JsonConverter;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -13,8 +20,16 @@ public class Clinic {
     /**
      * Список клиентов
      */
-    private static ArrayList<Client> clients;
+    private ArrayList<Client> clients;
     private static Clinic cliicInstance;
+    private static String clinicJsonFile = "clinic.json";
+    private static final Logger logger = Logger.getLogger(Client.class.toString());
+
+    public Clinic() {
+        this.clients = new ArrayList<Client>();
+        this.clients = this.readClinicFromJson(clinicJsonFile);
+        logger.info("Clinic has been created");
+    }
 
     /*
     * Метод возвращает статический обьект клиники
@@ -27,11 +42,9 @@ public class Clinic {
         return cliicInstance;
     }
 
-    private static final Logger logger = Logger.getLogger(Client.class.toString());
 
-    public Clinic() {
-        clients = new ArrayList<Client>();
-        logger.info("Clinic has been created");
+    public ArrayList<Client> getClientsArray(){
+        return clients;
     }
 
     /*
@@ -39,8 +52,8 @@ public class Clinic {
     *   @param position Позиция
     *   @param client Клиент
      */
-    public static void addClient(final Client client) {
-        clients.add(client);
+    public void addClient(final Client client) {
+        this.clients.add(client);
         logger.info("Client has been added to clinic");
     }
 
@@ -48,11 +61,11 @@ public class Clinic {
     \* Найти клиента по имени питомца
     *  @param name Кличка питомца
      */
-    public static Client findClientByPetName(final String petName) {
-        for (int i = 0; i < clients.size() - 1; i++)
-            if (clients.get(1).getPetName().compareTo(petName) == 0){
-                logger.info("Client " + clients.get(i).getId() + "was found. His pet name is: " + clients.get(i).getPetName());
-                return clients.get(i);
+    public Client findClientByPetName(final String petName) {
+        for (int i = 0; i < this.clients.size() - 1; i++)
+            if (this.clients.get(1).getPetName().compareTo(petName) == 0){
+                logger.info("Client " + this.clients.get(i).getId() + "was found. His pet name is: " + this.clients.get(i).getPetName());
+                return this.clients.get(i);
             }
         logger.info("Client with such name was not found");
         return new Client();
@@ -62,11 +75,11 @@ public class Clinic {
     * Найти клиента по имени
     * @param Имя клиента
      */
-    public static Client findClientById(final String name) {
-        for (int i = 0; i < clients.size() - 1; i++)
-            if (clients.get(i).getId().compareTo(name) == 0) {
-                logger.info("Client " + clients.get(i).getId() + "was found. His pet name is: " + clients.get(i).getPetName());
-                return clients.get(i);
+    public  Client findClientById(final String name) {
+        for (int i = 0; i < this.clients.size() - 1; i++)
+            if (this.clients.get(i).getId().compareTo(name) == 0) {
+                logger.info("Client " + this.clients.get(i).getId() + "was found. His pet name is: " + this.clients.get(i).getPetName());
+                return this.clients.get(i);
             }
         logger.info("Client with such name was not found");
         return new Client();
@@ -75,13 +88,36 @@ public class Clinic {
     /*
     * Получить список клиенвов
      */
-    public static String[] getClients(){
+    public String[] getClients(){
         String[] clientsList = new String[100];
-        for (int i = 0; i < clients.size() - 1; i++){
-            String clientName = "Клиент: " + clients.get(i).getId() + " - " + clients.get(i).getPetName();
+        for (int i = 0; i < this.clients.size() - 1; i++){
+            String clientName = "Клиент: " + this.clients.get(i).getId() + " - " + this.clients.get(i).getPetName();
             clientsList[i] = clientName;
         }
         logger.info("List of clients was displayed");
         return clientsList;
+    }
+
+    public ArrayList<Client> getClientArrayList(){
+        return this.clients;
+    }
+
+    private ArrayList<Client> readClinicFromJson(String file){
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fileReader);
+            String clientsJson  = reader.readLine();
+            Gson gson = new Gson();
+            JsonElement jsonElement = gson.fromJson (clientsJson, JsonElement.class);
+            System.out.println(jsonElement);
+            JsonConverter jsonConverter = new JsonConverter();
+            clients = jsonConverter.deserialize(jsonElement, new TypeToken<ArrayList<Client>>(){}.getType(), null);
+            logger.info("Clients list has been read from clinic.json");
+        } catch (FileNotFoundException e){
+            e.getStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return clients;
     }
 }
