@@ -28,6 +28,7 @@ public class Clinic {
     public Clinic() {
         this.clients = new ArrayList<Client>();
         this.clients = this.readClinicFromJson(clinicJsonFile);
+        System.out.println(this.clients);
         logger.info("Clinic has been created");
     }
 
