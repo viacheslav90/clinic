@@ -1,8 +1,9 @@
 package Client;
 
+import Clinic.Clinic;
 import Pet.Pet;
-import sun.rmi.runtime.Log;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -12,7 +13,7 @@ public class Client {
 
     private static final Logger logger = Logger.getLogger(Client.class.toString());
     private final String id;
-    private final Pet pet;
+    private Pet pet = null;
 
     public Client(){
         this.id = null;
@@ -38,6 +39,10 @@ public class Client {
      */
     public String getPetName(){
         return this.pet.getPetName();
+    }
+
+    public Pet  getPet(){
+        return this.pet;
     }
 
 }

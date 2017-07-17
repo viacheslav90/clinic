@@ -1,22 +1,23 @@
 package Frames;
 
-import ActionListeners.MainScreenActionListeners.WindowCloseListener;
-import Client.Client;
-import Clinic.Clinic;
-import JSONParser.PetParser;
-import Pet.Pet;
-import PetFactory.PetFactory;
-import javax.swing.*;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
-import javax.xml.soap.SOAPPart;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.IOException;
-import java.util.logging.Logger;
+        import ActionListeners.MainScreenActionListeners.WindowCloseListener;
+        import Client.Client;
+        import Clinic.Clinic;
+        import JsonConverter.JsonConverter;
+        import Pet.Pet;
+        import PetFactory.PetFactory;
+        import com.google.gson.reflect.TypeToken;
+        import javax.swing.*;
+        import javax.swing.event.CaretEvent;
+        import javax.swing.event.CaretListener;
+        import java.awt.*;
+        import java.awt.event.ActionEvent;
+        import java.awt.event.ActionListener;
+        import java.awt.event.ItemEvent;
+        import java.awt.event.ItemListener;
+        import java.io.FileWriter;
+        import java.io.IOException;
+        import java.util.logging.Logger;
 
 /**
  * Created by Slavka Dontsov on 04.07.2017.
@@ -161,17 +162,26 @@ public class AddClientFrame extends JFrame {
         * Метод создает клиента и добавляет в клинику
          */
         void createNewClient(){
-            try {
+            Clinic clinic = Clinic.getClinicInstance ();
+            if(clinic.isExist(this.clientName)) {
+                JFrame infoFrame = new JFrame();
+                infoFrame.setAlwaysOnTop(true);
+                JOptionPane.showMessageDialog(infoFrame, "Client with such name is exists");
+
+            } else {
                 PetFactory petFactory = new PetFactory();
-                Pet pet = petFactory.getPet(petSubClass, clientName, petName);
-                PetParser petParser = new PetParser();
-                System.out.println(petParser.petToJSON(pet));
+                Pet pet = petFactory.getPet(this.petSubClass, this.clientName, this.petName);
                 Client client = new Client(clientName, pet);
-                Clinic.addClient(client);
-            } catch (NullPointerException e){
-                logger.warning(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
+                clinic.addClient(client);
+                JsonConverter clinicConverter = new JsonConverter();
+                String clinicJson = clinicConverter.serialize(clinic, new TypeToken<Clinic>() {}.getType(), null).toString();
+                try {
+                    FileWriter fileWriter = new FileWriter("clinic.json", false);
+                    fileWriter.write(clinicJson);
+                    fileWriter.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
