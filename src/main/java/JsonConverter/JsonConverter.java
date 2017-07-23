@@ -6,8 +6,6 @@ import Pet.Pet;
 import PetFactory.IPetFactory;
 import PetFactory.PetFactory;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 

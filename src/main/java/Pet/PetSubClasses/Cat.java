@@ -37,4 +37,21 @@ public class Cat extends Pet{
         logger.info("getVerietyPet() has been called");
         return VARIETY_PET;
     }
+
+    public boolean equals(Object obj){
+        if(obj == this)
+            return true;
+        if (obj == null)
+            return false;
+        Cat cat = (Cat) obj;
+        if (cat.getClientName() == null || cat.getVarietyPet() == null || cat.getPetName() == null)
+            return false;
+        if (!this.clientName.equals(cat.getClientName()))
+            return false;
+        if (!this.petName.equals(cat.getPetName()))
+            return false;
+        if (!VARIETY_PET.equals(cat.getVarietyPet()))
+            return false;
+        return true;
+    }
 }

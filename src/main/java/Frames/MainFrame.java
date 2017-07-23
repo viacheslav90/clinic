@@ -1,6 +1,7 @@
 package Frames;
 
 import ActionListeners.MainScreenActionListeners.AddClientActionListener;
+import ActionListeners.MainScreenActionListeners.DeleteClientActionListener;
 
 import javax.security.auth.login.LoginException;
 import javax.swing.*;
@@ -29,7 +30,7 @@ public class MainFrame extends JFrame {
      */
     public void createMainFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900,200);
+        //setSize(900,200);
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -43,6 +44,7 @@ public class MainFrame extends JFrame {
 
         JButton deleteClientButton = new JButton("Delete Client");
         jPanel.add(deleteClientButton);
+        deleteClientButton.addActionListener(new DeleteClientActionListener());
 
         JButton showClientsButton = new JButton("Show Clients");
         jPanel.add(showClientsButton);
@@ -55,6 +57,8 @@ public class MainFrame extends JFrame {
 
         AddClientActionListener addButtonListener = new AddClientActionListener();
         addClientButton.addActionListener(addButtonListener);
+
+        this.pack();
 
         logger.info("Main frame was opened");
     }

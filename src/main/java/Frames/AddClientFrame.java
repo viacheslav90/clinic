@@ -3,10 +3,8 @@ package Frames;
         import ActionListeners.MainScreenActionListeners.WindowCloseListener;
         import Client.Client;
         import Clinic.Clinic;
-        import JsonConverter.JsonConverter;
         import Pet.Pet;
         import PetFactory.PetFactory;
-        import com.google.gson.reflect.TypeToken;
         import javax.swing.*;
         import javax.swing.event.CaretEvent;
         import javax.swing.event.CaretListener;
@@ -15,8 +13,6 @@ package Frames;
         import java.awt.event.ActionListener;
         import java.awt.event.ItemEvent;
         import java.awt.event.ItemListener;
-        import java.io.FileWriter;
-        import java.io.IOException;
         import java.util.logging.Logger;
 
 /**
@@ -43,7 +39,7 @@ public class AddClientFrame extends JFrame {
      */
     private void createAddClientFrame() {
         //setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        setSize(1000, 500);
+        //setSize(1000, 500);
         setLocationRelativeTo(null);
         setAlwaysOnTop(true);
         setVisible(true);
@@ -128,6 +124,7 @@ public class AddClientFrame extends JFrame {
         });
 
         addClientHandler = new AddClientHandler();
+        this.pack();
         logger.info("addClientHandler has been created");
     }
 
@@ -141,18 +138,18 @@ public class AddClientFrame extends JFrame {
         private String petSubClass = "Cat";
 
 
-        void setClientName(String clientName){
+        void setClientName(String clientName) {
             this.clientName = clientName;
-            logger.info("Client name has been set: "+ clientName);
+            logger.info("Client name has been set: " + clientName);
         }
 
-        void setPetName(String petName){
+        void setPetName(String petName) {
             this.petName = petName;
             logger.info("Pet name has been set: " + petName);
         }
 
-        void setPetSubClass(String petSubClass){
-            if(petSubClass.equals("Cat") || petSubClass.equals("Dog")) {
+        void setPetSubClass(String petSubClass) {
+            if (petSubClass.equals("Cat") || petSubClass.equals("Dog")) {
                 this.petSubClass = petSubClass;
                 logger.info("Pet subclass has been set: " + petSubClass);
             }
@@ -161,30 +158,20 @@ public class AddClientFrame extends JFrame {
         /*
         * Метод создает клиента и добавляет в клинику
          */
-        void createNewClient(){
-            Clinic clinic = Clinic.getClinicInstance ();
-            if(clinic.isExist(this.clientName)) {
+        void createNewClient() {
+            Clinic clinic = Clinic.getClinicInstance();
+            if (clinic.isExist(this.clientName)) {
                 JFrame infoFrame = new JFrame();
                 infoFrame.setAlwaysOnTop(true);
                 JOptionPane.showMessageDialog(infoFrame, "Client with such name is exists");
-
             } else {
                 PetFactory petFactory = new PetFactory();
                 Pet pet = petFactory.getPet(this.petSubClass, this.clientName, this.petName);
                 Client client = new Client(clientName, pet);
                 clinic.addClient(client);
-                JsonConverter clinicConverter = new JsonConverter();
-                String clinicJson = clinicConverter.serialize(clinic, new TypeToken<Clinic>() {}.getType(), null).toString();
-                try {
-                    FileWriter fileWriter = new FileWriter("clinic.json", false);
-                    fileWriter.write(clinicJson);
-                    fileWriter.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
-
         }
+
     }
 }
 

@@ -4,9 +4,7 @@ import Client.Client;
 import JsonConverter.JsonConverter;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -21,7 +19,7 @@ public class Clinic {
      * Список клиентов
      */
     private ArrayList<Client> clients;
-    private static Clinic cliicInstance;
+    private static Clinic clinicInstance;
     private static String clinicJsonFile = "clinic.json";
     private static final Logger logger = Logger.getLogger(Client.class.toString());
 
@@ -35,11 +33,11 @@ public class Clinic {
     * Метод возвращает статический обьект клиники
      */
     public static Clinic getClinicInstance(){
-        if (cliicInstance == null) {
+        if (clinicInstance == null) {
             logger.info("Clinic instance has been created");
-            return cliicInstance = new Clinic();
+            return clinicInstance = new Clinic();
         }
-        return cliicInstance;
+        return clinicInstance;
     }
 
     public ArrayList<Client> getClientsArray(){
@@ -53,7 +51,18 @@ public class Clinic {
      */
     public void addClient(final Client client) {
         this.clients.add(client);
+        this.writeToJson();
         logger.info("Client has been added to clinic");
+    }
+
+    public boolean deleteClient(String clientName){
+        Client client = this.findClientById(clientName);
+        if(!client.equals(new Client())){
+            this.clients.remove(client);
+            this.writeToJson();
+            return true;
+        }
+        return false;
     }
 
     /*
@@ -74,8 +83,8 @@ public class Clinic {
     * Найти клиента по имени
     * @param Имя клиента
      */
-    public  Client findClientById(final String name) {
-        for (int i = 0; i < this.clients.size() - 1; i++)
+    public Client findClientById(final String name) {
+        for (int i = 0; i < this.clients.size(); i++)
             if (this.clients.get(i).getId().compareTo(name) == 0) {
                 logger.info("Client " + this.clients.get(i).getId() + "was found. His pet name is: " + this.clients.get(i).getPetName());
                 return this.clients.get(i);
@@ -102,10 +111,14 @@ public class Clinic {
     }
 
     private ArrayList<Client> readClinicFromJson(String file){
+
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
             String clientsJson  = reader.readLine();
+            if(clientsJson.equals("")){
+                return new ArrayList<Client>();
+            }
             Gson gson = new Gson();
             JsonElement jsonElement = gson.fromJson (clientsJson, JsonElement.class);
             JsonConverter jsonConverter = new JsonConverter();
@@ -125,5 +138,18 @@ public class Clinic {
                 return true;
         }
         return false;
+    }
+
+    public void writeToJson() {
+        JsonConverter clinicConverter = new JsonConverter();
+        String clinicJson = clinicConverter.serialize(Clinic.getClinicInstance(), new TypeToken<Clinic>() {
+        }.getType(), null).toString();
+        try {
+            FileWriter fileWriter = new FileWriter("clinic.json", false);
+            fileWriter.write(clinicJson);
+            fileWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

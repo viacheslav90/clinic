@@ -41,8 +41,25 @@ public class Client {
         return this.pet.getPetName();
     }
 
-    public Pet  getPet(){
+    public Pet getPet(){
         return this.pet;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj == this)
+            return true;
+        if (obj.getClass() != this.getClass() )
+            return false;
+        Client client = (Client)obj;
+        if (client.getId() == null || client.getPet() == null)
+            return false;
+        if (!client.getId().equals(this.getId()))
+            return false;
+        if (!client.getPet().equals(this.getPet())){
+            return true;
+        }
+        return false;
     }
 
 }

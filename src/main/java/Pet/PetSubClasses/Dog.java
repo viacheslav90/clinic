@@ -34,4 +34,21 @@ public class Dog extends Pet{
     public String getVarietyPet(){
         return VARIETY_PET;
     }
+
+    public boolean equals(Object obj){
+        if (obj == this)
+            return true;
+        if (obj == null)
+            return false;
+        Dog dog = (Dog) obj;
+        if (dog.getClientName() == null || dog.getPetName() == null || dog.getVarietyPet() == null)
+            return false;
+        if (!super.clientName.equals(dog.getClientName()))
+            return false;
+        if (!super.petName.equals(dog.getPetName()))
+            return false;
+        if (!VARIETY_PET.equals(dog.getVarietyPet()))
+            return false;
+        return true;
+    }
 }

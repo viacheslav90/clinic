@@ -1,5 +1,7 @@
 package ActionListeners.MainScreenActionListeners;
 
+import Frames.DeleteClientFrame;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
@@ -12,7 +14,7 @@ public class DeleteClientActionListener implements ActionListener {
     private static final Logger logger = Logger.getLogger(DeleteClientActionListener.class.toString());
 
     public void actionPerformed(ActionEvent e) {
-        logger.info("aactionPrerformed method from DeleteClientActionListener was called");
-
+        DeleteClientFrame deleteClientFrame = new DeleteClientFrame();
+        logger.info("actionPrerformed method from DeleteClientActionListener was called");
     }
 }
