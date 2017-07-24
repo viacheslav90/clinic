@@ -106,9 +106,6 @@ public class Clinic {
         return clientsList;
     }
 
-    public ArrayList<Client> getClientArrayList(){
-        return this.clients;
-    }
 
     private ArrayList<Client> readClinicFromJson(String file){
 
@@ -116,7 +113,7 @@ public class Clinic {
             FileReader fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
             String clientsJson  = reader.readLine();
-            if(clientsJson.equals("")){
+            if(clientsJson == null){
                 return new ArrayList<Client>();
             }
             Gson gson = new Gson();
@@ -126,8 +123,10 @@ public class Clinic {
             logger.info("Clients list has been read from clinic.json");
         } catch (FileNotFoundException e){
             e.getStackTrace();
+            return new ArrayList<Client>();
         } catch (IOException e) {
             e.printStackTrace();
+            return new ArrayList<Client>();
         }
         return clients;
     }

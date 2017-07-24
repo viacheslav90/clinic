@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb62cc20-eb17-4b11-b8dc-ed568b8dc43c" name="Default" comment="9.07.2017">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ActionListeners/MainScreenActionListeners/ClientNameTextFieldListener.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clinic.iml" afterPath="$PROJECT_DIR$/Clinic.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ActionListeners/MainScreenActionListeners/DeleteClientActionListener.java" afterPath="$PROJECT_DIR$/src/main/java/ActionListeners/MainScreenActionListeners/DeleteClientActionListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Client/Client.java" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clinic.json" afterPath="$PROJECT_DIR$/clinic.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Clinic/Clinic.java" afterPath="$PROJECT_DIR$/src/main/java/Clinic/Clinic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Frames/AddClientFrame.java" afterPath="$PROJECT_DIR$/src/main/java/Frames/AddClientFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Frames/MainFrame.java" afterPath="$PROJECT_DIR$/src/main/java/Frames/MainFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/JsonConverter/JsonConverter.java" afterPath="$PROJECT_DIR$/src/main/java/JsonConverter/JsonConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Pet/Pet.java" afterPath="$PROJECT_DIR$/src/main/java/Pet/Pet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Cat.java" afterPath="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Cat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Dog.java" afterPath="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Dog.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Clinic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Clinic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Clinic/Clinic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="86" column="47" lean-forward="false" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
+            <state relative-caret-position="380">
+              <caret line="124" column="30" lean-forward="true" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clinic.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="clinic.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clinic.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -225,10 +216,10 @@
         <option value="$PROJECT_DIR$/src/main/java/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Cat.java" />
         <option value="$PROJECT_DIR$/src/main/java/Pet/PetSubClasses/Dog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Clinic/Clinic.java" />
-        <option value="$PROJECT_DIR$/clinic.json" />
         <option value="$PROJECT_DIR$/src/main/java/JsonConverter/JsonConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/Frames/DeleteClientFrame.java" />
+        <option value="$PROJECT_DIR$/clinic.json" />
+        <option value="$PROJECT_DIR$/src/main/java/Clinic/Clinic.java" />
       </list>
     </option>
   </component>
@@ -891,12 +882,12 @@
       <workItem from="1500489142691" duration="6949000" />
       <workItem from="1500729908360" duration="852000" />
       <workItem from="1500827707358" duration="178000" />
-      <workItem from="1500828518626" duration="802000" />
+      <workItem from="1500828518626" duration="1299000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115227000" />
+    <option name="totallyTimeSpent" value="115724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -980,16 +971,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Clinic/Clinic.java</url>
-          <line>57</line>
-          <properties class="Clinic.Clinic" method="deleteClient">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1229,16 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Pet/Pet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding>
-            <element signature="e#437#438#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
@@ -1270,14 +1241,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ActionListeners/MainScreenActionListeners/WindowCloseListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/JsonConverter/JsonConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1286,6 +1249,14 @@
             <element signature="imports" expanded="true" />
             <element signature="e#658#666#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Frames/DeleteClientFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="54" column="96" lean-forward="false" selection-start-line="54" selection-start-column="96" selection-end-line="54" selection-end-column="96" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,29 +1270,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Clinic/Clinic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ActionListeners/MainScreenActionListeners/WindowCloseListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="86" column="47" lean-forward="false" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Frames/DeleteClientFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Pet/Pet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="54" column="96" lean-forward="false" selection-start-line="54" selection-start-column="96" selection-end-line="54" selection-end-column="96" />
-          <folding />
+        <state relative-caret-position="289">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <element signature="e#437#438#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clinic.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Clinic/Clinic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="124" column="30" lean-forward="true" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
