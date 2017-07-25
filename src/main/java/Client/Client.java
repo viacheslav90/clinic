@@ -1,9 +1,6 @@
 package Client;
 
-import Clinic.Clinic;
 import Pet.Pet;
-
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
@@ -62,4 +59,9 @@ public class Client {
         return false;
     }
 
+    @Override
+    public String toString(){
+        String client = "Client: " + this.getId() + " - Pet variety: " + this.getPet().getVarietyPet() + " - Pet name: " + this.getPet().getPetName();
+        return client;
+    }
 }

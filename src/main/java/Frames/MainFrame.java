@@ -2,11 +2,11 @@ package Frames;
 
 import ActionListeners.MainScreenActionListeners.AddClientActionListener;
 import ActionListeners.MainScreenActionListeners.DeleteClientActionListener;
-
-import javax.security.auth.login.LoginException;
+import ActionListeners.MainScreenActionListeners.SearchByNameActionListener;
+import ActionListeners.MainScreenActionListeners.ShowClientsActionListener;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
+
 import java.util.logging.Logger;
 
 /**
@@ -48,9 +48,11 @@ public class MainFrame extends JFrame {
 
         JButton showClientsButton = new JButton("Show Clients");
         jPanel.add(showClientsButton);
+        showClientsButton.addActionListener(new ShowClientsActionListener());
 
         JButton searchByNameButton = new JButton("Search Client by name");
         jPanel.add(searchByNameButton);
+        searchByNameButton.addActionListener(new SearchByNameActionListener());
 
         JButton searchByPetButton = new JButton("Search Client by pet");
         jPanel.add(searchByPetButton);

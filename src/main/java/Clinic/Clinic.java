@@ -98,8 +98,8 @@ public class Clinic {
      */
     public String[] getClients(){
         String[] clientsList = new String[100];
-        for (int i = 0; i < this.clients.size() - 1; i++){
-            String clientName = "Клиент: " + this.clients.get(i).getId() + " - " + this.clients.get(i).getPetName();
+        for (int i = 0; i < this.clients.size(); i++){
+            String clientName = clients.get(i).toString();
             clientsList[i] = clientName;
         }
         logger.info("List of clients was displayed");
