@@ -70,8 +70,8 @@ public class Clinic {
     *  @param name Кличка питомца
      */
     public Client findClientByPetName(final String petName) {
-        for (int i = 0; i < this.clients.size() - 1; i++)
-            if (this.clients.get(1).getPetName().compareTo(petName) == 0){
+        for (int i = 0; i < this.clients.size(); i++)
+            if (this.clients.get(i).getPetName().compareTo(petName) == 0){
                 logger.info("Client " + this.clients.get(i).getId() + "was found. His pet name is: " + this.clients.get(i).getPetName());
                 return this.clients.get(i);
             }

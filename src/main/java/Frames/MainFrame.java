@@ -1,9 +1,7 @@
 package Frames;
 
-import ActionListeners.MainScreenActionListeners.AddClientActionListener;
-import ActionListeners.MainScreenActionListeners.DeleteClientActionListener;
-import ActionListeners.MainScreenActionListeners.SearchByNameActionListener;
-import ActionListeners.MainScreenActionListeners.ShowClientsActionListener;
+import ActionListeners.MainScreenActionListeners.*;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -56,6 +54,7 @@ public class MainFrame extends JFrame {
 
         JButton searchByPetButton = new JButton("Search Client by pet");
         jPanel.add(searchByPetButton);
+        searchByPetButton.addActionListener(new SearchByPetActionListener());
 
         AddClientActionListener addButtonListener = new AddClientActionListener();
         addClientButton.addActionListener(addButtonListener);

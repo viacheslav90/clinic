@@ -1,5 +1,6 @@
 package ActionListeners.MainScreenActionListeners;
 
+import Frames.SearchClientByPetFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
@@ -13,6 +14,7 @@ public class SearchByPetActionListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
+        SearchClientByPetFrame searchClientByPetFrame = new SearchClientByPetFrame();
         logger.info("aactionPrerformed method from SearchByPetActionListener was called");
 
     }
