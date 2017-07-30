@@ -9,28 +9,27 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-/**
- * Класс клиника
- *
- */
+// class Clinic
 public class Clinic {
 
-    /**
-     * Список клиентов
-     */
     private ArrayList<Client> clients;
     private static Clinic clinicInstance;
+
+    //path to json file
     private static String clinicJsonFile = "clinic.json";
+    // create Logger instance
     private static final Logger logger = Logger.getLogger(Client.class.toString());
 
+    // Clinic constructor
     public Clinic() {
         this.clients = new ArrayList<Client>();
         this.clients = this.readClinicFromJson(clinicJsonFile);
         logger.info("Clinic has been created");
     }
 
-    /*
-    * Метод возвращает статический обьект клиники
+    /**
+     * clinic instance getter
+     * @return clinicInstance
      */
     public static Clinic getClinicInstance(){
         if (clinicInstance == null) {
@@ -40,21 +39,24 @@ public class Clinic {
         return clinicInstance;
     }
 
+    /**
+     * clients array getter
+     * @return ArrayList<Client>
+     */
     public ArrayList<Client> getClientsArray(){
         return clients;
     }
 
-    /*
-    *   Добавить клиента
-    *   @param position Позиция
-    *   @param client Клиент
-     */
     public void addClient(final Client client) {
         this.clients.add(client);
         this.writeToJson();
         logger.info("Client has been added to clinic");
     }
 
+    /**
+     * @param clientName
+     * @return true if client was deleded, false if client was not found in clinic
+     */
     public boolean deleteClient(String clientName){
         Client client = this.findClientById(clientName);
         if(!client.equals(new Client())){
@@ -65,9 +67,10 @@ public class Clinic {
         return false;
     }
 
-    /*
-    \* Найти клиента по имени питомца
-    *  @param name Кличка питомца
+    /**
+     * find client by pet name
+     * @param petName
+     * @return Client
      */
     public Client findClientByPetName(final String petName) {
         for (int i = 0; i < this.clients.size(); i++)
@@ -79,9 +82,11 @@ public class Clinic {
         return new Client();
     }
 
-    /*
-    * Найти клиента по имени
-    * @param Имя клиента
+
+    /**
+     * find client by name
+     * @param name
+     * @return Client
      */
     public Client findClientById(final String name) {
         for (int i = 0; i < this.clients.size(); i++)
@@ -93,8 +98,9 @@ public class Clinic {
         return new Client();
     }
 
-    /*
-    * Получить список клиенвов
+    /**
+     * get clients
+     * @return String[
      */
     public String[] getClients(){
         String[] clientsList = new String[100];
@@ -131,6 +137,11 @@ public class Clinic {
         return clients;
     }
 
+    /**
+     * is exists
+     * @param clientName
+     * @return true which client is exist, false if client is not exists
+     */
     public boolean isExist(String clientName) {
         for (int i = 0; i < this.clients.size(); i++) {
             if (clientName.equals(clients.get(i).getId()))
@@ -139,6 +150,7 @@ public class Clinic {
         return false;
     }
 
+    // write to json file
     public void writeToJson() {
         JsonConverter clinicConverter = new JsonConverter();
         String clinicJson = clinicConverter.serialize(Clinic.getClinicInstance(), new TypeToken<Clinic>() {

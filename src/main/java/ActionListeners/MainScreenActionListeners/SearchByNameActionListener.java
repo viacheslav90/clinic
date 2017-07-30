@@ -11,8 +11,13 @@ import java.util.logging.Logger;
  */
 public class SearchByNameActionListener implements ActionListener{
 
+    //create Logger instance
     private static final Logger logger = Logger.getLogger(SearchByNameActionListener.class.toString());
 
+    /**
+     * create SearchByNameFrame
+     * @param e - event
+     */
     public void actionPerformed(ActionEvent e) {
 
         SearchClientFrame searchClientFrame = new SearchClientFrame();

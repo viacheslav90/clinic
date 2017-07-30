@@ -11,8 +11,13 @@ import java.util.logging.Logger;
  */
 public class ShowClientsActionListener implements ActionListener{
 
+    // create Logger instance
     public static final Logger logger = Logger.getLogger(ShowClientsActionListener.class.toString());
 
+    /**
+     * create ShowClientsFrame
+     * @param e - event
+     */
     public void actionPerformed(ActionEvent e) {
         ShowClientsFrame showClientsFrame = new ShowClientsFrame();
         logger.info("aactionPrerformed method from ShowClientsActionListener was called");

@@ -14,18 +14,12 @@ public class MainFrame extends JFrame {
 
     private static final Logger logger = Logger.getLogger(MainFrame.class.toString());
 
-    /*
-    * Метод добавляет основное меню
-    */
     public MainFrame(){
         super("My Clinic");
         createMainFrame();
         logger.info("Main frame was build");
     }
 
-    /*
-    * Метод отображает основное меню
-     */
     public void createMainFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //setSize(900,200);

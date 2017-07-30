@@ -14,6 +14,10 @@ public class AddClientActionListener implements EventListener, ActionListener {
 
     private static final Logger logger = Logger.getLogger(AddClientActionListener.class.toString());
 
+    /**
+     * create AcdClientFrame in a new thread
+     * @param e - event
+     */
     public void actionPerformed(ActionEvent e){
         logger.info("actionPrerformed method from AddClientActionListener was called");
         AddClientThread addClientThread = new AddClientThread();

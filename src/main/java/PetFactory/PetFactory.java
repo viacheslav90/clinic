@@ -11,12 +11,6 @@ import java.util.logging.Logger;
  */
 public class PetFactory implements IPetFactory{
 
-    /*
-    * Метод созает объекты классов Кот/Собака
-    * @param petSubClass подклас животного Cat/Dog
-    * @param clientName имя клиента
-    * @param petName имя питомца
-     */
     private static final Logger logger = Logger.getLogger(PetFactory.class.toString());
 
     public Pet getPet(String petSubClass, String clientName, String petName) {

@@ -9,16 +9,14 @@ import java.util.logging.Logger;
 /**
  * Created by Slavka Dontsov on 08.07.2017.
  */
-
-    /*
-    * Класс для обработки закрытия окна
-     */
 public class WindowCloseListener extends WindowAdapter {
 
+    // creating Logger instance
     private static final Logger logger = Logger.getLogger(WindowCloseListener.class.toString());
 
-    /*
-    * Метод прерывает поток при закрытии окна
+    /**
+     * overriding windows closing default
+     * @param e - event
      */
     @Override
     public void windowClosing(WindowEvent e) {

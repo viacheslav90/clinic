@@ -10,8 +10,13 @@ import java.util.logging.Logger;
  */
 public class SearchByPetActionListener implements ActionListener {
 
+    // create Logger instance
     private static final Logger logger = Logger.getLogger(SearchByPetActionListener.class.toString());
 
+    /**
+     * create SearchByPetNameFrame
+     * @param e - event
+     */
     public void actionPerformed(ActionEvent e) {
 
         SearchClientByPetFrame searchClientByPetFrame = new SearchClientByPetFrame();

@@ -32,7 +32,6 @@ public class JsonConverter implements JsonSerializer<Clinic>, JsonDeserializer<A
         return clients;
     }
 
-
     public JsonElement serialize(final Clinic clinic, Type type, JsonSerializationContext jsonSerializationContext) {
         JsonArray clinicObj = new JsonArray();
 

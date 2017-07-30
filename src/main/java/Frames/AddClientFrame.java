@@ -23,9 +23,6 @@ public class AddClientFrame extends JFrame {
     private static final Logger logger = Logger.getLogger(AddClientFrame.class.toString());
     private AddClientHandler addClientHandler;
 
-    /*
-    * Метод добавляет окно добавляения нового клиента
-     */
     public AddClientFrame() {
         super("Add new Client");
         this.createAddClientFrame();
@@ -34,9 +31,6 @@ public class AddClientFrame extends JFrame {
         logger.info("Client frame was build");
     }
 
-    /*
-    * Метод отображает окно добавления нового клиента
-     */
     private void createAddClientFrame() {
         //setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         //setSize(1000, 500);
@@ -49,9 +43,7 @@ public class AddClientFrame extends JFrame {
         this.add(jpanel);
         jpanel.setLayout(new FlowLayout());
 
-        /*
-        * Ввод имени клиента
-         */
+        // enter client name
         final JLabel jLabelClientName = new JLabel("Client name: ");
         jLabelClientName.setVerticalAlignment(SwingConstants.CENTER);
         jLabelClientName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -66,9 +58,7 @@ public class AddClientFrame extends JFrame {
             }
         });
 
-        /*
-        * Ввод имени питомца
-         */
+        // enter pet name
         final JLabel jLabelPetName = new JLabel("Pet name: ");
         jLabelPetName.setVerticalAlignment(SwingConstants.CENTER);
         jLabelPetName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -82,9 +72,7 @@ public class AddClientFrame extends JFrame {
             }
         });
 
-        /*
-        * Выбор подкласса питомца
-         */
+        // enter pet subclass
         final JLabel jchoosePetSubClass = new JLabel("Choose pet subclass: ");
         jchoosePetSubClass.setHorizontalAlignment(SwingConstants.CENTER);
         jchoosePetSubClass.setVerticalAlignment(SwingConstants.CENTER);
@@ -99,9 +87,7 @@ public class AddClientFrame extends JFrame {
             }
         });
 
-        /*
-        * Кнопка добавить питомца
-         */
+        // add button
         final JButton addButton = new JButton("Add");
         jpanel.add(addButton);
         addButton.addActionListener(new ActionListener() {
@@ -111,9 +97,7 @@ public class AddClientFrame extends JFrame {
             }
         });
 
-        /*
-        * Кнопка отменить
-         */
+        // cancell button
         final JButton cancelButton = new JButton("Cancel");
         jpanel.add(cancelButton);
         cancelButton.addActionListener(new ActionListener() {
@@ -128,10 +112,6 @@ public class AddClientFrame extends JFrame {
         logger.info("addClientHandler has been created");
     }
 
-
-    /*
-    * Вложеный класс, который выполняет создание нового клиента
-     */
     private class AddClientHandler {
         private String clientName;
         private String petName;
@@ -155,9 +135,6 @@ public class AddClientFrame extends JFrame {
             }
         }
 
-        /*
-        * Метод создает клиента и добавляет в клинику
-         */
         void createNewClient() {
             Clinic clinic = Clinic.getClinicInstance();
             if (clinic.isExist(this.clientName)) {
